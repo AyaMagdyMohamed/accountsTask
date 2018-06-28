@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Accounts</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-list>
+    <ion-item *ngFor="let item of items" >
+     
+      <li class = "item item-checkbox  checkbox-royal " (click)="itemTapped(event,item);" >
+    
+        <label class = "checkbox"   >
+           <input type = "checkbox"   [(ngModel)]="item.checkBox" (click)="select($event, items)"   />
+        </label>
+      {{item.accountNum}}
+       total Services {{item.totalServices}}
+       toal Bills {{item.totalBill.BillType}} , {{item.totalBill.BillValue}}
+
+     </li>
+    </ion-item>
+      </ion-list>
+      <div class="center" *ngIf="visability">
+        <button color="secondary" ion-button full > SELECT All</button>
+     </div>
+     <div class="center" *ngIf="visability2">
+      <button color="secondary" ion-button full > UNSELECT All</button>
+    </div>
+</ion-content>
